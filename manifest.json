@@ -1,0 +1,148 @@
+{
+  "metering_config": {
+    "default_schedule": "immediate",
+    "grace_window_hours": 24,
+    "on_missing_rule": "no_charge",
+    "rating_version": "1.0",
+    "rules": [
+      {
+        "charge": {
+          "rate_per_unit": 2,
+          "schedule": "immediate",
+          "type": "per_quantity"
+        },
+        "id": "email_send",
+        "match": {
+          "event_type": "email_send"
+        }
+      },
+      {
+        "charge": {
+          "rate_per_unit": 5,
+          "schedule": "immediate",
+          "type": "per_quantity"
+        },
+        "id": "bulk_send",
+        "match": {
+          "event_type": "bulk_send"
+        }
+      },
+      {
+        "charge": {
+          "rate_per_unit": 3,
+          "schedule": "immediate",
+          "type": "per_quantity"
+        },
+        "id": "email_template",
+        "match": {
+          "event_type": "email_template"
+        }
+      },
+      {
+        "charge": {
+          "rate_per_unit": 1,
+          "schedule": "immediate",
+          "type": "per_quantity"
+        },
+        "id": "premium_features",
+        "match": {
+          "event_type": "premium_features"
+        }
+      },
+      {
+        "charge": {
+          "rate_per_unit": 0.001,
+          "schedule": "immediate",
+          "type": "per_quantity"
+        },
+        "id": "streaming_per_second",
+        "match": {
+          "event_type": "streaming_seconds"
+        }
+      },
+      {
+        "charge": {
+          "rate_per_unit": 0.06,
+          "schedule": "immediate",
+          "type": "per_quantity"
+        },
+        "id": "streaming_per_minute",
+        "match": {
+          "event_type": "streaming_minutes"
+        }
+      },
+      {
+        "charge": {
+          "rate_per_unit": 2,
+          "schedule": "immediate",
+          "type": "per_quantity"
+        },
+        "id": "compute_per_hour",
+        "match": {
+          "event_type": "compute_hours"
+        }
+      }
+    ]
+  },
+  "offerings": [
+    {
+      "description": "Usage reported by service, deducted at end of day (or hourly if configured).",
+      "name": "Pay as you go",
+      "offering_id": "qmail-pay-as-you-go",
+      "pricing": {
+        "deduction_schedule": "daily",
+        "rate_per_unit": 2,
+        "unit": "email"
+      },
+      "type": "pay-as-you-go"
+    },
+    {
+      "description": "Prepaid: 100 points for 1000 emails.",
+      "name": "Email Package - 1000 Emails",
+      "offering_id": "qmail-package-1000",
+      "pricing": {
+        "points": 100,
+        "quota": 1000,
+        "unit": "email"
+      },
+      "type": "package"
+    },
+    {
+      "description": "Prepaid: 250 points for 500 bulk sends.",
+      "name": "Bulk Email Package - 500",
+      "offering_id": "qmail-package-bulk-500",
+      "pricing": {
+        "points": 250,
+        "quota": 500,
+        "unit": "email"
+      },
+      "type": "package"
+    },
+    {
+      "description": "1000 points per month.",
+      "name": "Monthly subscription",
+      "offering_id": "qmail-subscription-monthly",
+      "pricing": {
+        "billing_period": "monthly",
+        "points": 1000
+      },
+      "type": "subscription"
+    },
+    {
+      "description": "5000 points per year.",
+      "name": "Yearly subscription",
+      "offering_id": "qmail-subscription-yearly",
+      "pricing": {
+        "billing_period": "yearly",
+        "points": 5000
+      },
+      "type": "subscription"
+    }
+  ],
+  "public_key": "d0GMQxBDSktaYBB/B1Dr6nHSmb0bSPSDJNm4nHiw11k=",
+  "public_key_type": "Ed25519",
+  "service_did": "did:credit:service:pet",
+  "service_id": "pet",
+  "service_name": "Pet",
+  "signature": "OYNo63fihel8Z8wAJxZugQbv86vAoD+2Sg4Oln5WhaWjDyzEl5sEY7odSoSKSwUD11k6KDdHGXkaCUUj3JRvAA=="
+}
