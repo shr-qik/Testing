@@ -105,6 +105,13 @@
         "quota": 1000,
         "unit": "email"
       },
+      "refund_policy": {
+        "cancel_refund_mode": "prepaid_unused_fraction",
+        "cancellation_allowed": true,
+        "enabled": true,
+        "policy_url": "",
+        "user_facing_summary": "Refund for unused quota only: cancel anytime; refund = points × (remaining quota ÷ total quota)."
+      },
       "type": "package"
     },
     {
@@ -116,6 +123,12 @@
         "quota": 500,
         "unit": "email"
       },
+      "refund_policy": {
+        "cancel_refund_mode": "full_if_no_usage",
+        "cancellation_allowed": true,
+        "enabled": true,
+        "user_facing_summary": "Full refund only if you have not used any quota (no sends). After any usage, cancel without refund."
+      },
       "type": "package"
     },
     {
@@ -125,6 +138,12 @@
       "pricing": {
         "billing_period": "monthly",
         "points": 1000
+      },
+      "refund_policy": {
+        "cancel_refund_mode": "prorated_period",
+        "cancellation_allowed": true,
+        "enabled": true,
+        "user_facing_summary": "Cancel anytime; refund prorated for unused subscription time (points)."
       },
       "type": "subscription"
     },
@@ -136,13 +155,20 @@
         "billing_period": "yearly",
         "points": 5000
       },
+      "refund_policy": {
+        "cancel_refund_mode": "full_if_no_usage",
+        "cancellation_allowed": true,
+        "enabled": true,
+        "max_days_since_purchase_for_full_refund": 14,
+        "user_facing_summary": "Full refund within 14 days of purchase (cooling-off). After that, cancel without refund."
+      },
       "type": "subscription"
     }
   ],
-  "public_key": "FMC9vqIsGnPqgThzuTgzr8sPJPStX7090miOt7Npkqw=",
+  "public_key": "+IkHVmByJzVp2I812+R01vobLuMtwH8TI98XhBYngw8=",
   "public_key_type": "Ed25519",
-  "service_did": "did:credit:service:newsletter",
-  "service_id": "newsletter",
-  "service_name": "Newsletter",
-  "signature": "Hp/KCvJdWGWBlIRiSzF/pBUURl76PohLDhXqDa3JZExuumO58FY+cULcordESI3m4HIN9+VjCoverDSOiBiOBw=="
+  "service_did": "did:credit:service:file-manager",
+  "service_id": "file-manager",
+  "service_name": "FILE_MANAGER",
+  "signature": "hNWV7gmQdOgacY+wkFPyi8s5Bgbtk1Rwli+UJfRrY3qCF6IHZdKgP/OwxwIfZfvybaWkfLZIenuUTP+c9ph1AQ=="
 }
