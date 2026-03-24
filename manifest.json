@@ -1,4 +1,5 @@
 {
+  "base_url": "http://localhost:8081",
   "metering_config": {
     "default_schedule": "immediate",
     "grace_window_hours": 24,
@@ -165,10 +166,10 @@
       "type": "subscription"
     }
   ],
-  "public_key": "+IkHVmByJzVp2I812+R01vobLuMtwH8TI98XhBYngw8=",
+  "public_key": "r8npRItiRHUAmGv9dc80Xsi6DTOY7pUPMxV0zFB8M/A=",
   "public_key_type": "Ed25519",
-  "service_did": "did:credit:service:file-manager",
-  "service_id": "file-manager",
-  "service_name": "FILE_MANAGER",
-  "signature": "hNWV7gmQdOgacY+wkFPyi8s5Bgbtk1Rwli+UJfRrY3qCF6IHZdKgP/OwxwIfZfvybaWkfLZIenuUTP+c9ph1AQ=="
+  "service_did": "did:credit:service:file",
+  "service_id": "file",
+  "service_name": "FILE",
+  "signature": "mQ/aqVXL3/Rzcb80VMLCiTAh4lPxXrTA+z/I8q4MMKSAyID9rrzm5eGRzdV/eWUY+QJGjxgjJt3y+rZIdFRsBQ=="
 }
