@@ -139,10 +139,10 @@
       "type": "subscription"
     }
   ],
-  "public_key": "d0GMQxBDSktaYBB/B1Dr6nHSmb0bSPSDJNm4nHiw11k=",
+  "public_key": "FMC9vqIsGnPqgThzuTgzr8sPJPStX7090miOt7Npkqw=",
   "public_key_type": "Ed25519",
-  "service_did": "did:credit:service:pet",
-  "service_id": "pet",
-  "service_name": "Pet",
-  "signature": "OYNo63fihel8Z8wAJxZugQbv86vAoD+2Sg4Oln5WhaWjDyzEl5sEY7odSoSKSwUD11k6KDdHGXkaCUUj3JRvAA=="
+  "service_did": "did:credit:service:newsletter",
+  "service_id": "newsletter",
+  "service_name": "Newsletter",
+  "signature": "Hp/KCvJdWGWBlIRiSzF/pBUURl76PohLDhXqDa3JZExuumO58FY+cULcordESI3m4HIN9+VjCoverDSOiBiOBw=="
 }
