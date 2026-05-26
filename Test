@@ -1,0 +1,98 @@
+{
+  "service_catalog_registration": {
+    "provider": {
+      "base_url": "https://test-search.example.com",
+      "public_key": "c/9TRiOwqprd9+FdLD1wnc+hMIY3qzAyicgFcNKNjx0=",
+      "public_key_type": "Ed25519",
+      "signature": "GN5+YvrjAzulNMnMjI2m4EHBzD3QqjlynjKwnZyaNrX2IYR3CP0EZrlKvM5hsdj0+UOEmS0Qe+y/MhS115nJBA=="
+    },
+    "registration": {
+      "schema": "https://schemas.qikfox.com/billing/v1/service-catalog-registration.schema.json",
+      "version": "1.0"
+    },
+    "service_manifest": {
+      "manifest": {
+        "schema": "https://schemas.qikfox.com/billing/v1/service-metering-manifest.schema.json",
+        "version": "1.0"
+      },
+      "plan_aliases": {
+        "test-search-postpaid": "com-qikfox-test-search__postpaid"
+      },
+      "plans": [
+        {
+          "credit_grant": {
+            "amount": 0,
+            "top_up_enabled": false
+          },
+          "description": "Pay per token at month end; no upfront credit grant.",
+          "drawdown": {
+            "rules": [
+              {
+                "event": "llm.tokens",
+                "id": "search-llm-tokens",
+                "meter": {
+                  "default_input_usd_per_1m_tokens": 1,
+                  "default_output_usd_per_1m_tokens": 5,
+                  "model_rates": [
+                    {
+                      "input_usd_per_1m_tokens": 0.5,
+                      "model": "qikfox-search-default",
+                      "output_usd_per_1m_tokens": 0.5
+                    }
+                  ],
+                  "token_type": "llm"
+                },
+                "model_dimension": "model",
+                "type": "per_token"
+              }
+            ]
+          },
+          "expiry": {
+            "on_expiry_action": "forfeit",
+            "policy": "term_end"
+          },
+          "id": "com-qikfox-test-search__postpaid",
+          "name": "Test Search — Postpaid",
+          "offering_type_id": "postpaid",
+          "postpaid": {
+            "accrual_unit": "qfx-credit",
+            "billing_cycle": "month",
+            "settlement": "invoice"
+          },
+          "price_usd": 0,
+          "service_ids": ["com.qikfox.test-search"],
+          "term": {
+            "auto_renew": true,
+            "duration": 1,
+            "duration_days": 30,
+            "grace_period_days": 3,
+            "period": "month",
+            "type": "postpaid"
+          }
+        }
+      ],
+      "service": {
+        "app_name": "Test Search",
+        "catalog_mode": "global_plans",
+        "category": "productivity",
+        "id": "com.qikfox.test-search",
+        "name": "Test Search",
+        "publisher": "qikfox Inc.",
+        "third_party": false
+      },
+      "validation": {
+        "allowed_drawdown_types": [
+          "per_token",
+          "time_period",
+          "per_session",
+          "per_event",
+          "per_action",
+          "per_resource",
+          "tiered"
+        ],
+        "max_drawdown_rules_per_plan": 15,
+        "max_plans": 16
+      }
+    }
+  }
+}
