@@ -1,0 +1,98 @@
+{
+  "service_catalog_registration": {
+    "provider": {
+      "base_url": "https://test-llm-service.example.com",
+      "public_key": "jYS1o9mGV150lyKR96kL2v/4iqPpmQ56gI79dDSgEjM=",
+      "public_key_type": "Ed25519",
+      "signature": "2lP26u3dQwlElf89Xtzef4Q2SYoHzSDttHRqt08NU5KKNp/r/1h/0IYZiX8lL6it6KBuTAhLZA0K6fz65tX5AA=="
+    },
+    "registration": {
+      "schema": "https://schemas.qikfox.com/billing/v1/service-catalog-registration.schema.json",
+      "version": "1.0"
+    },
+    "service_manifest": {
+      "manifest": {
+        "schema": "https://schemas.qikfox.com/billing/v1/service-metering-manifest.schema.json",
+        "version": "1.0"
+      },
+      "plan_aliases": {
+        "test-llm-postpaid": "com-qikfox-test-llm-service__postpaid"
+      },
+      "plans": [
+        {
+          "credit_grant": {
+            "amount": 0,
+            "top_up_enabled": false
+          },
+          "description": "Pay per LLM token at month end; no upfront credit grant.",
+          "drawdown": {
+            "rules": [
+              {
+                "event": "llm.tokens",
+                "id": "llm-tokens",
+                "meter": {
+                  "default_input_usd_per_1m_tokens": 1,
+                  "default_output_usd_per_1m_tokens": 5,
+                  "model_rates": [
+                    {
+                      "input_usd_per_1m_tokens": 0.4,
+                      "model": "test-llm-default",
+                      "output_usd_per_1m_tokens": 0.8
+                    }
+                  ],
+                  "token_type": "llm"
+                },
+                "model_dimension": "model",
+                "type": "per_token"
+              }
+            ]
+          },
+          "expiry": {
+            "on_expiry_action": "forfeit",
+            "policy": "term_end"
+          },
+          "id": "com-qikfox-test-llm-service__postpaid",
+          "name": "Test LLM Service — Postpaid",
+          "offering_type_id": "postpaid",
+          "postpaid": {
+            "accrual_unit": "qfx-credit",
+            "billing_cycle": "month",
+            "settlement": "invoice"
+          },
+          "price_usd": 0,
+          "service_ids": ["com.qikfox.test-llm-service"],
+          "term": {
+            "auto_renew": true,
+            "duration": 1,
+            "duration_days": 30,
+            "grace_period_days": 3,
+            "period": "month",
+            "type": "postpaid"
+          }
+        }
+      ],
+      "service": {
+        "app_name": "Test LLM Service",
+        "catalog_mode": "global_plans",
+        "category": "productivity",
+        "id": "com.qikfox.test-llm-service",
+        "name": "Test LLM Service",
+        "publisher": "qikfox Inc.",
+        "third_party": false
+      },
+      "validation": {
+        "allowed_drawdown_types": [
+          "per_token",
+          "time_period",
+          "per_session",
+          "per_event",
+          "per_action",
+          "per_resource",
+          "tiered"
+        ],
+        "max_drawdown_rules_per_plan": 15,
+        "max_plans": 16
+      }
+    }
+  }
+}
